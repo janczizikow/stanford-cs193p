@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet weak var newGameButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,24 @@ class ViewController: UIViewController {
             updateViewFromModel()
         }
     }
+    @IBAction func touchNewGameButton(_ sender: UIButton) {
+        // Reset State
+        flipCount = 0
+        emoji = [Int: String]()
+        emojiChoices = ["🦇", "😱", "🙀", "👻", "🎃", "🍭 ", "🍬", "🍎"]
+        game = Concentration(numberOfPairsOfCards: cardButtons.count / 2)
+        
+        // Reset UI
+        for button in cardButtons {
+            button.setTitle("", for: UIControl.State.normal)
+            button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+        }
+        newGameButton.isHidden = true
+    }
     
     // MARK: Private methods
     private func updateViewFromModel() {
+        var allCardsMatched = true
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -45,7 +61,15 @@ class ViewController: UIViewController {
                 button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
                 // TODO: disable buttons that are matched
+                
+                if (!card.isMatched) {
+                    allCardsMatched = false
+                }
             }
+        }
+        
+        if (allCardsMatched) {
+            newGameButton.isHidden = false
         }
     }
     

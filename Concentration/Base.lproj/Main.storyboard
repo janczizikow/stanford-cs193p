@@ -222,19 +222,33 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voi-u9-s8U">
+                                <rect key="frame" x="20" y="803" width="374" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CgJ-qS-iB7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f0A-ot-FyW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gck-A5-cb8"/>
                             <constraint firstItem="f0A-ot-FyW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HDl-3B-e5f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HL7-bz-HL8" secondAttribute="trailing" constant="20" id="Hvz-zg-ekd"/>
+                            <constraint firstItem="Voi-u9-s8U" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-8" id="a5K-Fs-UK1"/>
+                            <constraint firstItem="Voi-u9-s8U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hJx-5P-3UC"/>
                             <constraint firstItem="HL7-bz-HL8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="iao-Tr-Z8e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Voi-u9-s8U" secondAttribute="trailing" constant="20" id="meT-Q5-0KZ"/>
                             <constraint firstItem="HL7-bz-HL8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qro-Ho-F92"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="HL7-bz-HL8" id="zhn-kx-Ia0"/>
+                        <outlet property="newGameButton" destination="Voi-u9-s8U" id="ie0-Ob-AYn"/>
                         <outletCollection property="cardButtons" destination="Tlc-7g-Blj" collectionClass="NSMutableArray" id="yQY-zw-Shj"/>
                         <outletCollection property="cardButtons" destination="Afc-9S-sZu" collectionClass="NSMutableArray" id="xoP-sb-8hL"/>
                         <outletCollection property="cardButtons" destination="WlK-fG-7fh" collectionClass="NSMutableArray" id="Hno-ZI-G2f"/>
